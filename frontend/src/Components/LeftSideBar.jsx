@@ -11,7 +11,7 @@ import { BiSolidLogOut } from "react-icons/bi";
 
 function LeftSideBar() {
   return (
-    <div>
+    <div className='w-[20%]'>
 
       <div className='flex items-center cursor-pointer ml-3 mt-2'>
         <div className="">
@@ -58,8 +58,10 @@ function LeftSideBar() {
           <h1 className='font-bold text-lg ml-2'>Logout</h1>
         </div>
       </div>
-
-      <button className='bg-black rounded-full m-5 w-full text-white px-4 py-2'>POST</button>
+          
+          <div className='mt-5'>
+              <button className='bg-black rounded-full m-auto w-full text-white px-4 py-2'>POST</button>
+          </div>
     </div>
   )
 }

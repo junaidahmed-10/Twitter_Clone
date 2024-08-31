@@ -1,8 +1,13 @@
 import React from 'react'
+import CreatePost from './CreatePost'
 
 function Feed() {
   return (
-    <div>Feed</div>
+    <div className='w-[60%]'>
+      <div className="">
+        <CreatePost />
+      </div>
+    </div>
   )
 }
 
