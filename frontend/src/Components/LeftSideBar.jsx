@@ -5,6 +5,7 @@ import { IoNotifications } from "react-icons/io5";
 import { FaBookmark } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { BiSolidLogOut } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 
 
@@ -21,12 +22,12 @@ function LeftSideBar() {
       </div>
 
       <div className='mt-4 mr-10'>
-        <div className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
+        <Link to={"/"} className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
           <div className=''>
             <IoMdHome size={25} />
           </div>
           <h1 className='font-bold text-lg ml-2'>Home</h1>
-        </div>
+        </Link>
         <div className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
           <div className=''>
             <MdExplore size={25} />
@@ -45,12 +46,12 @@ function LeftSideBar() {
           </div>
           <h1 className='font-bold text-lg ml-2'>Bookmarks</h1>
         </div>
-        <div className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
+        <Link to={"/profile"} className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
           <div className=''>
             <FaUserAlt size={25} />
           </div>
           <h1 className='font-bold text-lg ml-2'>Profile</h1>
-        </div>
+        </Link>
         <div className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
           <div className=''>
             <BiSolidLogOut size={25} />
