@@ -20,7 +20,7 @@ function LeftSideBar() {
         <h1 className='font-bold text-lg ml-2'>twitter</h1>
       </div>
 
-      <div className='mt-4'>
+      <div className='mt-4 mr-10'>
         <div className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
           <div className=''>
             <IoMdHome size={25} />
@@ -59,7 +59,7 @@ function LeftSideBar() {
         </div>
       </div>
           
-          <div className='mt-5'>
+          <div className='mt-5 mr-10'>
               <button className='bg-black rounded-full m-auto w-full text-white px-4 py-2'>POST</button>
           </div>
     </div>

@@ -5,7 +5,7 @@ import { FaImage } from "react-icons/fa6";
 
 function CreatePost() {
   return (
-    <div className='w-full'>
+    <div className='w-full border-b border-gray-300'>
         <div className='flex justify-center mt-1 border-b border-gray-200'>
             <div className='w-[50%] text-center mt-0  hover:bg-gray-300 border-r border-gray-200'>
                     <h1 className='text-lg font-semibold cursor-pointer hover:bg-gray-300 m-3 py-2'>For You</h1>
@@ -22,7 +22,7 @@ function CreatePost() {
              <textarea className='w-full outline-none mr-2 p-2 pl-2 border-b border-gray-400' placeholder='What is Happening...!'/>
         </div>
 
-        <div className='flex items-center justify-between mt-2'>
+        <div className='flex items-center justify-between mt-2 mb-1'>
           <div className=''>
             <FaImage className=''/>
           </div>
