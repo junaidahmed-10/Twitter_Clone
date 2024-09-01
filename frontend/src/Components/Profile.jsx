@@ -21,6 +21,16 @@ function Profile() {
                     <div className='absolute top-60 rounded-full border-2 border-white p-0 ml-4'>
                         <Avatar className='' src='lion2.avif' size='120' round={true}/>
                     </div>
+                    <div className='text-right m-4'>
+                        <button className='px-4 py-1 text-white bg-black rounded-full'>Edit Profile</button>
+                    </div>
+                    <div className='ml-0 mt-2'>
+                        <h1 className='font-bold text-xl'>Name</h1>
+                        <p>@user_name</p>
+                    </div>
+                    <div className='ml-0 mt-3'  >
+                        <p className='text-lg'>this is a bio of this application</p>
+                    </div>
                 </div>
         </div>
     )
