@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import userRoute from './routes/userRoute.js'
 import TweetRoutes from './routes/TweetRoutes.js'
 import connectDataBase from "./config/dataBase.js";
+import cors from 'cors';
 dotenv.config({
     path: ".env"
 })
@@ -16,8 +17,15 @@ const port = 3000;
 app.use(express.urlencoded({
     extended: true,
 }))
-app.use(express.json())
+app.use(express.json()) 
 app.use(cookieParser());
+
+
+const corsOptions = {
+    origin: "http://localhost:5173",
+    credentials: true
+}
+app.use(cors(corsOptions))
 
 
 //apis
@@ -29,6 +37,6 @@ app.get("/home", (req, res) => {
     })
 })
 
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT || 3000 , () => {
     console.log(`the app is listening on PORT:${port}`);
 })
