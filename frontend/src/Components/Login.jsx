@@ -3,6 +3,8 @@ import axios from 'axios';
 import { USER_API_END_POINT } from '../utils/Constants.js';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getUser } from '../Redux/userSlice.jsx';
 
 function Login() {
 
@@ -12,7 +14,8 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const SubmitHandler = async (e) => {
     e.preventDefault();
@@ -26,16 +29,13 @@ function Login() {
           },
           withCredentials: true
         })
+        dispatch(getUser(res?.data?.user))
         console.log(res);
         if (res.data.success) {
           navigate("/")
           toast.success(res.data.message)
         }
         // console.log(toast.success);
-
-
-
-
       } catch (error) {
         toast.success(error.response.data.message)
         console.log("error: ", error);

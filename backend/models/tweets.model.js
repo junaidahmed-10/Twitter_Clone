@@ -1,19 +1,23 @@
 import mongoose from "mongoose";
 
 const tweetSchema = new mongoose.Schema({
-    description:{
+    description: {
         type: String,
-        required : true,
+        required: true,
     },
-    like:{
+    like: {
         type: Array,
         default: [],
     },
-    userId:{
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref : "User",
+        ref: "User",
+    },
+    userDetails: {
+        type: Array,
+        default: []
     }
-    
-}, { timestamps: true})
+
+}, { timestamps: true })
 
 export const Tweet = mongoose.model("Tweet", tweetSchema)

@@ -6,11 +6,14 @@ import { FaBookmark } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { BiSolidLogOut } from "react-icons/bi";
 import { Link } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 
 
 
 function LeftSideBar() {
+
+  const { user } = useSelector(store => store.user)
+
   return (
     <div className='w-[20%]'>
 
@@ -46,7 +49,7 @@ function LeftSideBar() {
           </div>
           <h1 className='font-bold text-lg ml-2'>Bookmarks</h1>
         </div>
-        <Link to={"/profile"} className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
+        <Link to={`/profile/${user?._id}`} className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
           <div className=''>
             <FaUserAlt size={25} />
           </div>
