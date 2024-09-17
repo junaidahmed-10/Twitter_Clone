@@ -24,12 +24,25 @@ function Tweet({ tweet }) {
                 withCredentials: true
             })
             dispatch(getRefresh())
-              toast.success(res.data.message)
-            
+            toast.success(res.data.message)
+
         } catch (error) {
             toast.success(error.response.data.message)
             console.log(error);
 
+        }
+    }
+
+    const deleteTweetHandler = async (id) => {
+        try {
+            axios.defaults.withCredentials = true;
+            const res = await axios.delete(`${TWEET_API_END_POINT}/delete/${id}`);
+            console.log(res);
+            dispatch(getRefresh())
+            toast.success(res.data.message)
+        } catch (error) {
+            toast.success(error.response.data.message)
+            console.log(error);
         }
     }
 
@@ -62,9 +75,13 @@ function Tweet({ tweet }) {
                                 <FaBookmark size={20} />
                                 <p className='ml-1'>0</p>
                             </div>
-                            <div className='flex items-center  hover:bg-red-200 rounded-full p-1 cursor-pointer'>
-                                <MdDelete size={26} />
-                            </div>
+                            {
+                                user?._id === tweet?.userId && (
+                                    <div onClick={() => deleteTweetHandler(tweet?._id)} className='flex items-center  hover:bg-red-200 rounded-full p-1 cursor-pointer'>
+                                        <MdDelete size={26} />
+                                    </div>
+                                )
+                            }
                         </div>
 
                     </div>
