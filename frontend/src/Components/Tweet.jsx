@@ -9,6 +9,7 @@ import { TWEET_API_END_POINT } from '../utils/Constants';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 import { getRefresh } from '../Redux/tweetSlice';
+import { timeSince } from '../utils/Constants';
 
 
 
@@ -55,7 +56,7 @@ function Tweet({ tweet }) {
                     <div className='ml-2 w-full'>
                         <div className='flex items-center '>
                             <h1 className='font-bold'>{tweet?.userDetails[0]?.name}</h1>
-                            <p className='text-sm ml-2 text-gray-500'>{`@${tweet?.userDetails[0]?.username}`} . 1m</p>
+                            <p className='text-sm ml-2 text-gray-500'>{`@${tweet?.userDetails[0]?.username}`} . {`${timeSince(tweet?.createdAt)}`}</p>
                         </div>
 
                         <div>
