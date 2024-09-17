@@ -5,14 +5,34 @@ import { IoNotifications } from "react-icons/io5";
 import { FaBookmark } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { BiSolidLogOut } from "react-icons/bi";
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import {USER_API_END_POINT} from "../utils/Constants"
+import axios from "axios"
+import toast from 'react-hot-toast';
+import { getMyProfile, getOtherUsers, getUser } from '../Redux/userSlice';
 
 
 
 function LeftSideBar() {
 
   const { user } = useSelector(store => store.user)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  async function logoutHandler() {
+    try {
+      const res = await axios.get(`${USER_API_END_POINT}/logout`)
+      dispatch(getUser(null))
+      dispatch(getOtherUsers(null))
+      dispatch(getMyProfile(null))
+      navigate('/login');
+      toast.success(res.data.message)
+    } catch (error) {
+     console.log(error);
+      
+    }
+  }
 
   return (
     <div className='w-[20%]'>
@@ -55,7 +75,7 @@ function LeftSideBar() {
           </div>
           <h1 className='font-bold text-lg ml-2'>Profile</h1>
         </Link>
-        <div className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
+        <div onClick={logoutHandler} className='flex items-center hover:bg-gray-300 cursor-pointer rounded-full px-4 py-2 my-2 '>
           <div className=''>
             <BiSolidLogOut size={25} />
           </div>
